@@ -86,7 +86,8 @@ db.restaurans.find({"address.street": {$exists: true}})
 db.restaurans.find({"address.coord": {$type: "double"}}) 
 
 /* 30 Escriu una consulta que seleccioni el restaurant_id, name i grade per a aquells restaurants que retornen 0 com a residu després de dividir algun dels seus score per 7. */
-db.restaurans.find({}, {restaurant_id: 1, name: 1, grades: 1}) ---
+db.restaurans.find({"grades.score": {$mod: [7,0] }}, {restaurant_id: 1, name: 1, grades: 1})
+
 /* 31 Escriu una consulta per trobar el name de restaurant, borough, longitud, latitud i cuisine per a aquells restaurants que contenen 'mon' en algun lloc del seu name. */
 db.restaurans.find({name: /.*mon.*/}, {name: 1, borough: 1, "address.coord": 1, cuisine: 1})
 
