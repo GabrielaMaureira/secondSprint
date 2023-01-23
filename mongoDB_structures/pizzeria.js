@@ -58,7 +58,7 @@ db.client.insertOne({
 })
 db.product.insertOne({
     id: 1,
-    category: "Spicy"
+    category: "Spicy",
     name: "Diavolo",
     description: "Pizza with spicy ingredients",
     image: File(),
